@@ -2,7 +2,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <?php $this->load->view("admin/_partials/foot") ?>
+            <?php $this->load->view("_partials/foot") ?>
             <!-- End of Footer -->
 
         </div>
@@ -11,13 +11,13 @@
     </div>
     <!-- End of Page Wrapper -->
 <!-- Scroll to Top Button-->
-    <?php $this->load->view("admin/_partials/scrollbuttontop") ?>
+    <?php $this->load->view("_partials/scrollbuttontop") ?>
 
     <!-- Logout Modal-->
-     <?php $this->load->view("admin/_partials/logoutmodal") ?>
+     <?php $this->load->view("_partials/logoutmodal") ?>
 
     <!-- script -->
-    <?php $this->load->view("admin/_partials/script") ?>
+    <?php $this->load->view("_partials/script") ?>
 
 
 </body>
