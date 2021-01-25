@@ -3,9 +3,6 @@
                     <!-- Sidebar Toggle (Topbar) -->
                     <?php $this->load->view("admin/_partials/sidebartoggle") ?>
 
-                    <!-- Topbar Search -->
-                   <?php $this->load->view("admin/_partials/topbarsearch") ?>
-
                     <!-- Topbar Navbar -->
                     <?php $this->load->view("admin/_partials/topbarnavbar") ?>
 
