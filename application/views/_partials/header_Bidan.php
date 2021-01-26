@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php $this->load->view("admin/_partials/head") ?>
+<?php $this->load->view("_partials/head") ?>
 
 <body id="page-top">
 
@@ -9,7 +9,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <?php $this->load->view("admin/_partials/sidebar_Bidan") ?>
+        <?php $this->load->view("_partials/sidebar_Bidan") ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -19,5 +19,5 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <?php $this->load->view("admin/_partials/topbar") ?>
+                <?php $this->load->view("_partials/topbar") ?>
                 <!-- End of Topbar -->

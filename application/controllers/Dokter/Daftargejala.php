@@ -14,7 +14,7 @@
 	  	public function index()
 	    {
 	         $this->load->view("_partials/header_Dokter");
-		     $this->load->view("isi/tabelgejala"); // yang diubah ini!!!!!!!!!!!!
+		     $this->load->view("isi/Dokter/tabelgejala"); // yang diubah ini!!!!!!!!!!!!
 		     $this->load->view("_partials/footer");
 		}
 	}

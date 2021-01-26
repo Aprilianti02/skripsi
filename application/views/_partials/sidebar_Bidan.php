@@ -19,29 +19,29 @@
 
             <!-- Nav Item - Beranda-->
             <li class="nav-item">
-                <a class="nav-link" href="Beranda.html">
+                <a class="nav-link" href="<?php echo base_url ('Bidan/Beranda')?> ">
                     <span>Beranda</span>
                 </a>
             </li>
 
             <!-- Nav Item - Petunjuk -->
             <li class="nav-item">
-                <a class="nav-link" href="Petunjuk.html">
+                <a class="nav-link" href="<?php echo base_url ('Bidan/Petunjuk')?> ">
                     <span>Petunjuk</span></a>
             </li>
             <!-- Nav Item - informasi -->
             <li class="nav-item">
-                <a class="nav-link" href="Informasi.html">
+                <a class="nav-link" href="<?php echo base_url ('Bidan/Informasi')?> ">
                     <span>Informasi</span></a>
             </li>
             <!-- Nav Item - Gejala -->
             <li class="nav-item">
-                <a class="nav-link" href="Gejala.html">
+                <a class="nav-link" href="<?php echo base_url ('Bidan/Daftarpasien')?> ">
                     <span>Daftar Pasien</span></a>
             </li>
              <!-- Nav Item - Gejala -->
             <li class="nav-item">
-                <a class="nav-link" href="Hasil.html">
+                <a class="nav-link" href="<?php echo base_url ('Bidan/Daftargejala')?> ">
                     <span>Daftar Gejala</span></a>
             </li>
 

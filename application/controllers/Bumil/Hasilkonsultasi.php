@@ -12,9 +12,9 @@ class Hasilperiksa extends CI_Controller
 	}
 	public function index()
 	{
-	 	 $this->load->view("admin/_partials/header_Bumil");
-	 	 $this->load->view("admin/isi/Hasilkonsultasi");
-	 	 $this->load->view("admin/_partials/footer");
+	 	 $this->load->view("/_partials/header_Bumil");
+	 	 $this->load->view("/isi/Bumil/Hasilkonsultasi");
+	 	 $this->load->view("/_partials/footer");
 	}
 }
 ?>

@@ -19,19 +19,19 @@
 
             <!-- Nav Item - Beranda-->
             <li class="nav-item">
-                <a class="nav-link" href="Beranda.html">
+                <a class="nav-link" href="<?php echo base_url('Dokter/Beranda')?> ">
                     <span>Beranda</span>
                 </a>
             </li>
 
             <!-- Nav Item - Petunjuk -->
             <li class="nav-item">
-                <a class="nav-link" href="Petunjuk.html">
+                <a class="nav-link" href="<?php echo base_url('Dokter/Petunjuk')?> ">
                     <span>Petunjuk</span></a>
             </li>
             <!-- Nav Item - informasi -->
             <li class="nav-item">
-                <a class="nav-link" href="Informasi.html">
+                <a class="nav-link" href="<?php echo base_url('Dokter/Informasi')?> ">
                     <span>Informasi</span></a>
             </li>
             <!-- Nav Item - Gejala -->

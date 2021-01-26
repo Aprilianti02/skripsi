@@ -13,9 +13,9 @@
 
 	  	public function index()
 	    {
-	         $this->load->view("admin/_partials/header_Bidan");
-		     $this->load->view("admin/isi/tabelgejala"); // yang diubah ini!!!!!!!!!!!!
-		     $this->load->view("admin/_partials/footer");
+	         $this->load->view("/_partials/header_Bidan");
+		     $this->load->view("/isi/Bidan/tabelgejala"); // yang diubah ini!!!!!!!!!!!!
+		     $this->load->view("/_partials/footer");
 		}
 	}
 ?>
