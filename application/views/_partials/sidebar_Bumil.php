@@ -28,6 +28,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url ('Bumil/Petunjuk')?> ">
                     <span>Petunjuk</span></a>
+             </li>
+              <!-- Nav Item - Login -->
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url ('Bidan/Login')?> ">
+                    <span>Login</span></a>
+            </li>
             </li>
             <!-- Nav Item - informasi -->
             <li class="nav-item">

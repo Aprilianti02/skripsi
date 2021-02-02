@@ -13,9 +13,9 @@ class Beranda extends CI_Controller
 
 	public function index ()
 	{
-		     $this->load->view("_partials/header_Bidan");
-		     $this->load->view("isi/Bidan/Beranda"); // yang diubah ini!!!!!!!!!!!!
-		     $this->load->view("_partials/footer");
+		$this->load->view("_partials/header_Bidan");
+		$this->load->view("isi/Bidan/Beranda"); // yang diubah ini!!!!!!!!!!!!
+		$this->load->view("_partials/footer");
 	}
 }
 ?>
