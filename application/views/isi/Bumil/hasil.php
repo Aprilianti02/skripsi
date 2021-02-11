@@ -2,11 +2,19 @@
 <div class="container-fluid">
 	<center>
 		<!-- Page Heading -->
-		<h1 class="h3 mb-2 text-gray-800">Hasil Suspect penyakit Anemia Ibu Hamil</h1>
+		<div class="text-center">
+		<h1 class="h4 text-gray-900 mb-4">Hasil Ibu Hamil</h1>
+   </div>
         <br>
-		<p class="mb-4">Anemia adalah suatu keadaan dimana tubuh memiliki jumlah sel darah merah yaitu eritrosit yang
-			terlalu sedikit,sel darah merah itu mengandung hemoglobin yang berfungsi untuk membawa oksigen ke seluruh
-			jaringan tubuh<a target="_blank" href="https://hasil.net"></a>.</p>
+        <form>
+        	Nomor Rm      : <input type="text-center" name="Nomor Rm"></br>
+        	Nama Pasien    : <input type="text" name="Nama Pasien"></br/>
+			Tanggal Lahir  : <input type="text" name="tanggal lahir"><br/>
+			Alamat         : <input type="text" name="Alamat"><br/>
+        </form>
+        <a href="index.html" class="btn btn-google btn-block">
+        <i class=""></i> Anda Mengalami Tanda Gejala Anemia</a>
+	    </br>
 	</center>
 
 </div>

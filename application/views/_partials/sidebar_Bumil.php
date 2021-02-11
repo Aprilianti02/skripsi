@@ -30,12 +30,12 @@
 	</li>
 	<!-- Nav Item - Gejala -->
 	<li class="nav-item">
-		<a class="nav-link" href="<?php echo base_url ('Bumil/Gejala')?> ">
+		<a class="nav-link" href="<?php echo base_url ('Bumil/Daftargejala')?> ">
 			<span>Gejala</span></a>
 	</li>
 	<!-- Nav Item - Gejala -->
 	<li class="nav-item">
-		<a class="nav-link" href="<?php echo base_url ('Bumil/hasil')?> ">
+		<a class="nav-link" href="<?php echo base_url ('Bumil/Hasilkonsultasi')?> ">
 			<span>Hasil</span></a>
 	</li>
 

@@ -6,7 +6,6 @@
 		<h1 class="h4 text-gray-900 mb-4">Data Pasien Ibu Hamil</h1>
    </div>
 </head>
- 
 <body>
 <form>
 	Nomor Rm       : <input type="text" name="Nomor Rm"><br/>
