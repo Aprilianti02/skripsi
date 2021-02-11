@@ -3,7 +3,7 @@
 /**
  * 
  */
-class Hasilperiksa extends CI_Controller
+class Hasilkonsultasi extends CI_Controller
 {
 	
 	function __construct()
@@ -13,7 +13,7 @@ class Hasilperiksa extends CI_Controller
 	public function index()
 	{
 	 	 $this->load->view("/_partials/header_Bumil");
-	 	 $this->load->view("/isi/Bumil/Hasilkonsultasi");
+	 	 $this->load->view("/isi/Bumil/hasil");
 	 	 $this->load->view("/_partials/footer");
 	}
 }

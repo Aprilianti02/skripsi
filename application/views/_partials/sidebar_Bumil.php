@@ -35,7 +35,7 @@
 	</li>
 	<!-- Nav Item - Gejala -->
 	<li class="nav-item">
-		<a class="nav-link" href="<?php echo base_url ('Bumil/Hasil')?> ">
+		<a class="nav-link" href="<?php echo base_url ('Bumil/hasil')?> ">
 			<span>Hasil</span></a>
 	</li>
 
