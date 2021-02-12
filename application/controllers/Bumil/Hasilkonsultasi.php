@@ -16,5 +16,8 @@ class Hasilkonsultasi extends CI_Controller
 	 	 $this->load->view("/isi/Bumil/hasil");
 	 	 $this->load->view("/_partials/footer");
 	}
+	function perhitungan(){
+		
+	}
 }
 ?>
