@@ -16,6 +16,7 @@
     		<div class="card shadow mb-4">
     			<div class="card-header py-3">
     				<form enctype="multipart/form-data" action="<?php echo base_url("admin/user/add") ?>" method="POST">
+                        <hr>
     					<div class="card-body">
     						<div class="row">
     							<div class="col">

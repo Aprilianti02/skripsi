@@ -20,9 +20,11 @@
 		     $this->load->view("_partials/footer");
 		}
 
-		function add_gejala()
+		function add_gejala() 
 		{
-
+			$this->load->view("_partials/header_dokter");
+		     $this->load->view("isi/dokter/add_gejala"); // yang diubah ini!!!!!!!!!!!!
+		     $this->load->view("_partials/footer");
 		}
 	}
 ?>

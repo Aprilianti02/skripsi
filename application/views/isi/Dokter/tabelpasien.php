@@ -9,8 +9,6 @@
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
 			<h6 class="m-0 font-weight-bold text-primary">
-				<a href="<?php echo base_url("dokter/daftarpasien/add_pasien")?>" class="btn btn-primary">+ Tambah
-					Pasien</a></h6>
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">

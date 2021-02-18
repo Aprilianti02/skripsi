@@ -35,6 +35,11 @@
 	</li>
 	<!-- Nav Item - Gejala -->
 	<li class="nav-item">
+		<a class="nav-link" href="<?php echo base_url ('Bumil/Konsultasi')?> ">
+			<span>Konsultasi</span></a>
+	</li>
+	<!-- Nav Item - Gejala -->
+	<li class="nav-item">
 		<a class="nav-link" href="<?php echo base_url ('Bumil/Hasilkonsultasi')?> ">
 			<span>Hasil</span></a>
 	</li>
