@@ -22,15 +22,16 @@
     									<div class="form-group">
     										<span style='color:#F00;'>*</span>
     										<label class="col-form-label pt-0" for="no_rm">Nomor Rm</label>
-    										<input class="form-control" id="no_rm" name="no_rm"
-    											type="text" placeholder="Nomor Rekam Medis" required="">
+    										<input class="form-control" id="no_rm" name="no_rm" type="text"
+    											placeholder="Nomor Rekam Medis" required="">
     									</div>
     								</div>
     								<div class="col-md-2"></div>
     								<div class="col-md-5">
     									<div class="form-group">
     										<span style='color:#F00;'>*</span>
-    										<label class="col-form-label pt-0" for="nama_pasien">Nama Pasien</label>
+    										<label class="col-form-label pt-0" for="nama_pasien">Nama
+    											Pasien</label>
     										<input class="form-control" id="nama_pasien" name="nama_pasien"
     											type="text" placeholder="Nama Pasien" required="">
     									</div>
@@ -40,7 +41,8 @@
     								<div class="col-md-5">
     									<div class="form-group">
     										<span style='color:#F00;'>*</span>
-    										<label class="col-form-label pt-0" for="tgl_lahir">Tanggal Lahir</label>
+    										<label class="col-form-label pt-0" for="tgl_lahir">Tanggal
+    											Lahir</label>
     										<input class="form-control" id="tgl_lahir" name="tgl_lahir"
     											type="text" placeholder="Tanggal Lahir" required="">
     									</div>
@@ -48,8 +50,9 @@
     								<div class="col-md-2"></div>
     								<div class="col-md-5">
     									<div class="form-group">
-                                                 <span style='color:#F00;'>*</span>
-    										<label class="col-form-label pt-0" for="wilayah">Wilayah / Desa</label>
+    										<span style='color:#F00;'>*</span>
+    										<label class="col-form-label pt-0" for="wilayah">Wilayah /
+    											Desa</label>
     										<input class="form-control" id="wilayah" name="wilayah"
     											type="text" placeholder="wilayah" required="">
     									</div>
@@ -60,11 +63,13 @@
     									<div class="form-group">
     										<span style='color:#F00;'>*</span>
     										<label class="col-form-label pt-0" for="alamat">Alamat</label>
-                                                      <textarea class="form-control" name="alamat" id="alamat" cols="10" rows="2"></textarea>
+    										<textarea class="form-control" name="alamat" id="alamat" cols="10"
+    											rows="2"></textarea>
     									</div>
     								</div>
     							</div>
-    							</div>
+    						<hr>
+    						</div>
     					</form>
     				</div>
     			</div>
