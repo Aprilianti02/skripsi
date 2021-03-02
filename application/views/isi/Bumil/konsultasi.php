@@ -14,7 +14,7 @@
     		<div class="col-md-8">
     			<div class="card shadow mb-4">
     				<div class="card-header py-3">
-    					<form enctype="multipart/form-data" action="<?php echo base_url("bumil/perhitungan") ?>"
+    					<form enctype="multipart/form-data" action="<?php echo base_url("bumil/hasilkonsultasi/coba") ?>"
     						method="POST">
     						<div class="card-body">
     							<div class="row">
@@ -23,7 +23,7 @@
     										<span style='color:#F00;'>*</span>
     										<label class="col-form-label pt-0" for="no_rm">Nomor Rm</label>
     										<input class="form-control" id="no_rm" name="no_rm"
-    											type="text" placeholder="Nomor Rekam Medis" required="">
+    											type="text" placeholder="Nomor Rekam Medis" required="" value="<?php echo $this->session->userdata("no_rm") ?>" readonly="">
     									</div>
     								</div>
     								<div class="col-md-2"></div>
@@ -32,7 +32,7 @@
     										<span style='color:#F00;'>*</span>
     										<label class="col-form-label pt-0" for="nama_pasien">Nama Pasien</label>
     										<input class="form-control" id="nama_pasien" name="nama_pasien"
-    											type="text" placeholder="Nama Pasien" required="">
+    											type="text" placeholder="Nama Pasien" required="" value="<?php echo $this->session->userdata("nama")?>" readonly>
     									</div>
     								</div>
     							</div>
@@ -42,7 +42,7 @@
     										<span style='color:#F00;'>*</span>
     										<label class="col-form-label pt-0" for="tgl_lahir">Tanggal Lahir</label>
     										<input class="form-control" id="tgl_lahir" name="tgl_lahir"
-    											type="text" placeholder="Tanggal Lahir" required="">
+    											type="text" placeholder="Tanggal Lahir" required="" value="<?php echo $this->session->userdata("tgl_lahir")?>" readonly>
     									</div>
     								</div>
     								<div class="col-md-2"></div>
@@ -51,7 +51,7 @@
                                                  <span style='color:#F00;'>*</span>
     										<label class="col-form-label pt-0" for="wilayah">Wilayah / Desa</label>
     										<input class="form-control" id="wilayah" name="wilayah"
-    											type="text" placeholder="wilayah" required="">
+    											type="text" placeholder="wilayah" required="" value="<?php echo $this->session->userdata("wilayah")?>" readonly>
     									</div>
     								</div>
     							</div>
@@ -60,11 +60,13 @@
     									<div class="form-group">
     										<span style='color:#F00;'>*</span>
     										<label class="col-form-label pt-0" for="alamat">Alamat</label>
-                                                      <textarea class="form-control" name="alamat" id="alamat" cols="10" rows="2"></textarea>
+                                                      <textarea class="form-control" name="alamat" id="alamat" cols="10" rows="2" readonly><?php echo $this->session->userdata("nama")?></textarea>
     									</div>
     								</div>
     							</div>
     							<hr>
+							    <center><h5>Silahkan pilih gejala yang sedang anda alami</h5></center>
+							<hr>
     							<?php foreach($gejala as $g){ ?>
     							<div class="row">
     								<div class="col">

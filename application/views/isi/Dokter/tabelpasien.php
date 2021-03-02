@@ -18,16 +18,31 @@
 						<tr>
 							<th>No.RM</th>
 							<th>Nama Ibu Hamil</th>
-							<th>Action</th>
+							<th>Tanggal Lahir</th>
+							<th>Wilayah</th>
+							<th>Alamat</th>
 						</tr>
 					</thead>
 					<tfoot>
 						<tr>
 							<th>No.RM</th>
 							<th>Nama Ibu Hamil</th>
-							<th>Action</th>
+							<th>Tanggal Lahir</th>
+							<th>Wilayah</th>
+							<th>Alamat</th>
 						</tr>
 					</tfoot>
+					<tbody>
+						<?php foreach ($pasien as $p) { ?>
+							<tr>
+								<td><?php echo $p->no_rm ?></td>
+								<td><?php echo $p->nama ?></td>
+								<td><?php echo $p->tgl_lahir ?></td>
+								<td><?php echo $p->wilayah ?></td>
+								<td><?php echo $p->alamat ?></td>
+							</tr>
+						<?php } ?>
+					</tbody>
 				</table>
 			</div>
 		</div>
