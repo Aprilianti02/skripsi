@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Feb 2021 pada 05.10
--- Versi server: 10.4.8-MariaDB
--- Versi PHP: 7.3.10
+-- Generation Time: Mar 02, 2021 at 02:54 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_gejala`
+-- Table structure for table `tbl_gejala`
 --
 
 CREATE TABLE `tbl_gejala` (
@@ -34,7 +34,7 @@ CREATE TABLE `tbl_gejala` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_gejala`
+-- Dumping data for table `tbl_gejala`
 --
 
 INSERT INTO `tbl_gejala` (`kode_gejala`, `nama_gejala`) VALUES
@@ -57,7 +57,7 @@ INSERT INTO `tbl_gejala` (`kode_gejala`, `nama_gejala`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_nilai`
+-- Table structure for table `tbl_nilai`
 --
 
 CREATE TABLE `tbl_nilai` (
@@ -68,7 +68,7 @@ CREATE TABLE `tbl_nilai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_nilai`
+-- Dumping data for table `tbl_nilai`
 --
 
 INSERT INTO `tbl_nilai` (`kode_nilai`, `kode_pakar`, `kode_gejala`, `cf_pakar`) VALUES
@@ -91,37 +91,63 @@ INSERT INTO `tbl_nilai` (`kode_nilai`, `kode_pakar`, `kode_gejala`, `cf_pakar`) 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_pakar`
+-- Table structure for table `tbl_pakar`
 --
 
 CREATE TABLE `tbl_pakar` (
   `kode_pakar` varchar(5) NOT NULL,
-  `nama_pakar` varchar(30) NOT NULL
+  `nama_pakar` varchar(30) NOT NULL,
+  `jabatan` enum('Dokter','Bidan') NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `pass` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_pakar`
+-- Dumping data for table `tbl_pakar`
 --
 
-INSERT INTO `tbl_pakar` (`kode_pakar`, `nama_pakar`) VALUES
-('PK01', 'dr.Nina'),
-('PK02', 'Bidan Susani'),
-('PK03', 'Bidan ariani lutfi'),
-('PK04', 'Bidan indra Susilawati'),
-('PK05', 'Bidan Frida ');
+INSERT INTO `tbl_pakar` (`kode_pakar`, `nama_pakar`, `jabatan`, `username`, `pass`) VALUES
+('PK01', 'dr.Nina', 'Dokter', 'nina', '123'),
+('PK02', 'Bidan Susani', 'Bidan', 'susani', '123'),
+('PK03', 'Bidan ariani lutfi', 'Bidan', 'ariani', '123'),
+('PK04', 'Bidan indra Susilawati', 'Bidan', 'indra', '123'),
+('PK05', 'Bidan Frida ', 'Bidan', 'frida', '123');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_pasien`
+--
+
+CREATE TABLE `tbl_pasien` (
+  `kode_pasien` varchar(30) NOT NULL,
+  `nama` varchar(30) NOT NULL,
+  `tgl_lahir` date NOT NULL,
+  `wilayah` varchar(30) NOT NULL,
+  `alamat` tinytext NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `pass` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_pasien`
+--
+
+INSERT INTO `tbl_pasien` (`kode_pasien`, `nama`, `tgl_lahir`, `wilayah`, `alamat`, `username`, `pass`) VALUES
+('P00001', 'Siti Hajar Aprilianti', '1999-04-02', 'Sumber Anyar', 'Sumber Anyar', 'siti', '123');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `tbl_gejala`
+-- Indexes for table `tbl_gejala`
 --
 ALTER TABLE `tbl_gejala`
   ADD PRIMARY KEY (`kode_gejala`);
 
 --
--- Indeks untuk tabel `tbl_nilai`
+-- Indexes for table `tbl_nilai`
 --
 ALTER TABLE `tbl_nilai`
   ADD PRIMARY KEY (`kode_nilai`),
@@ -129,17 +155,23 @@ ALTER TABLE `tbl_nilai`
   ADD KEY `kode_gejala` (`kode_gejala`);
 
 --
--- Indeks untuk tabel `tbl_pakar`
+-- Indexes for table `tbl_pakar`
 --
 ALTER TABLE `tbl_pakar`
   ADD PRIMARY KEY (`kode_pakar`);
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Indexes for table `tbl_pasien`
+--
+ALTER TABLE `tbl_pasien`
+  ADD PRIMARY KEY (`kode_pasien`);
+
+--
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tbl_nilai`
+-- Constraints for table `tbl_nilai`
 --
 ALTER TABLE `tbl_nilai`
   ADD CONSTRAINT `tbl_nilai_ibfk_1` FOREIGN KEY (`kode_pakar`) REFERENCES `tbl_pakar` (`kode_pakar`),
