@@ -78,7 +78,7 @@ class Login extends CI_Controller
 				echo $pasien->username;
 				if ($pass == $pasien->pass) {
 					$data = [
-						'no_rm'		=> $pasien->no_rm,
+						'kode_pasien'	=> $pasien->kode_pasien,
 						'nama'		=> $pasien->nama,
 						'tgl_lahir'	=> $pasien->tgl_lahir,
 						'wilayah'		=> $pasien->wilayah,

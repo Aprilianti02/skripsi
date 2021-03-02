@@ -21,9 +21,9 @@
     								<div class="col-md-5">
     									<div class="form-group">
     										<span style='color:#F00;'>*</span>
-    										<label class="col-form-label pt-0" for="no_rm">Nomor Rm</label>
-    										<input class="form-control" id="no_rm" name="no_rm"
-    											type="text" placeholder="Nomor Rekam Medis" required="" value="<?php echo $this->session->userdata("no_rm") ?>" readonly="">
+    										<label class="col-form-label pt-0" for="kode_pasien">Nomor Pasien</label>
+    										<input class="form-control" id="kode_pasien" name="kode_pasien"
+    											type="text" placeholder="Nomor Rekam Medis" required="" value="<?php echo $this->session->userdata("kode_pasien") ?>" readonly="">
     									</div>
     								</div>
     								<div class="col-md-2"></div>
