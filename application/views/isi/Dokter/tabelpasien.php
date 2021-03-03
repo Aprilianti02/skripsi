@@ -6,17 +6,12 @@
 
 	<!-- DataTales Example -->
 	<div class="card shadow mb-4">
-		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold text-primary"></h6>
-			<a href="<?php echo base_url("bidan/daftargejala/add_gejala")?>" class="btn btn-primary">+ Tambah
-				Gejala</a></h6>
-		</div>
 		<div class="card-body">
 			<div class="table-responsive">
 				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 					<thead>
 						<tr>
-							<th>No.RM</th>
+							<th>No. Pasien</th>
 							<th>Nama Ibu Hamil</th>
 							<th>Tanggal Lahir</th>
 							<th>Wilayah</th>
@@ -25,7 +20,7 @@
 					</thead>
 					<tfoot>
 						<tr>
-							<th>No.RM</th>
+							<th>No. Pasien</th>
 							<th>Nama Ibu Hamil</th>
 							<th>Tanggal Lahir</th>
 							<th>Wilayah</th>
@@ -35,7 +30,7 @@
 					<tbody>
 						<?php foreach ($pasien as $p) { ?>
 							<tr>
-								<td><?php echo $p->no_rm ?></td>
+								<td><?php echo $p->kode_pasien ?></td>
 								<td><?php echo $p->nama ?></td>
 								<td><?php echo $p->tgl_lahir ?></td>
 								<td><?php echo $p->wilayah ?></td>
