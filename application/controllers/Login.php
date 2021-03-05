@@ -75,7 +75,7 @@ class Login extends CI_Controller
 		$data2 	= $this->Pasien_model->ambil_data();
 		foreach ($data2 as $pasien) {
 			if ($username == $pasien->username) {
-				echo $pasien->username;
+				echo $pass ." == ".$pasien->pass;
 				if ($pass == $pasien->pass) {
 					$data = [
 						'kode_pasien'	=> $pasien->kode_pasien,
@@ -89,6 +89,9 @@ class Login extends CI_Controller
 					// break;
 					$this->session->set_userdata($data);
 					redirect(base_url("bumil/beranda"));
+				}
+				else {
+					echo "gagal";
 				}
 			}
 		}

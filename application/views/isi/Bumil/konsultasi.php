@@ -14,7 +14,7 @@
     		<div class="col-md-8">
     			<div class="card shadow mb-4">
     				<div class="card-header py-3">
-    					<form enctype="multipart/form-data" action="<?php echo base_url("bumil/hasilkonsultasi/coba") ?>"
+    					<form enctype="multipart/form-data" action="<?php echo base_url("bumil/hasilkonsultasi") ?>"
     						method="POST">
     						<div class="card-body">
     							<div class="row">
@@ -75,7 +75,7 @@
     										<label class="col-form-label pt-0"
     											for="<?php echo $g->kode_gejala ?>"><?php echo $g->nama_gejala ?></label>
     										<select class="custom-select" id="<?php echo $g->kode_gejala ?>"
-    											name="<?php echo $g->kode_gejala ?>" required="">
+    											name="gejala[]" required="">
     											<option value="">--Pilih--</option>
     											<option value="0">Tidak Yakin</option>
     											<option value="0.2">Kurang Yakin</option>

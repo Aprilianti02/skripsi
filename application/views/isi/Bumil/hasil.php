@@ -21,9 +21,12 @@
     								<div class="col-md-5">
     									<div class="form-group">
     										<span style='color:#F00;'>*</span>
-    										<label class="col-form-label pt-0" for="no_rm">Nomor Rm</label>
-    										<input class="form-control" id="no_rm" name="no_rm" type="text"
-    											placeholder="Nomor Rekam Medis" required="">
+    										<label class="col-form-label pt-0" for="kode_pasien">Nomor
+    											Pasien</label>
+    										<input class="form-control" id="kode_pasien" name="kode_pasien"
+    											type="text" placeholder="Nomor Rekam Medis" required=""
+    											value="<?php echo $this->session->userdata("kode_pasien") ?>"
+    											readonly="">
     									</div>
     								</div>
     								<div class="col-md-2"></div>
@@ -33,7 +36,9 @@
     										<label class="col-form-label pt-0" for="nama_pasien">Nama
     											Pasien</label>
     										<input class="form-control" id="nama_pasien" name="nama_pasien"
-    											type="text" placeholder="Nama Pasien" required="">
+    											type="text" placeholder="Nama Pasien" required=""
+    											value="<?php echo $this->session->userdata("nama")?>"
+    											readonly>
     									</div>
     								</div>
     							</div>
@@ -44,7 +49,9 @@
     										<label class="col-form-label pt-0" for="tgl_lahir">Tanggal
     											Lahir</label>
     										<input class="form-control" id="tgl_lahir" name="tgl_lahir"
-    											type="text" placeholder="Tanggal Lahir" required="">
+    											type="text" placeholder="Tanggal Lahir" required=""
+    											value="<?php echo $this->session->userdata("tgl_lahir")?>"
+    											readonly>
     									</div>
     								</div>
     								<div class="col-md-2"></div>
@@ -54,7 +61,9 @@
     										<label class="col-form-label pt-0" for="wilayah">Wilayah /
     											Desa</label>
     										<input class="form-control" id="wilayah" name="wilayah"
-    											type="text" placeholder="wilayah" required="">
+    											type="text" placeholder="wilayah" required=""
+    											value="<?php echo $this->session->userdata("wilayah")?>"
+    											readonly>
     									</div>
     								</div>
     							</div>
@@ -64,16 +73,56 @@
     										<span style='color:#F00;'>*</span>
     										<label class="col-form-label pt-0" for="alamat">Alamat</label>
     										<textarea class="form-control" name="alamat" id="alamat" cols="10"
-    											rows="2"></textarea>
+    											rows="2"
+    											readonly><?php echo $this->session->userdata("nama")?></textarea>
     									</div>
     								</div>
     							</div>
-    						<hr>
+    							<hr>
+							    <center>
+    							<div class="row">
+    								<div class="col-md-12">
+    									<?php foreach ($hasil as $key) { ?> <?php
+					    			switch ($key['kode_pakar']) {
+								    case 'PK01':
+									?>
+    									<h5>dr. Nina</h5>
+    									<?php
+									    break;
+								    case 'PK02':
+									?>
+    									<h5>Bidan Susani</h5>
+    									<?php
+									    break;
+								    case 'PK03':
+									?>
+    									<h5>Bidan Ariani Lutfi</h5>
+    									<?php
+									    break;
+								    case 'PK04':
+									?>
+    									<h5>Bidan Indra Susilawati</h5>
+    									<?php
+									    break;
+								    case 'PK05':
+									?>
+    									<h5>Bidan Frida </h5>
+    									<?php
+									    break;
+								    
+								    default:
+									    # code...
+									    break;
+							    }
+							?>
+    									<p><?php echo $key['hasil'] ?></p>
+    									<?php } ?>
+    								</div>
+    							</div>
+							    </center>
     						</div>
     					</form>
     				</div>
     			</div>
-    			<div class="col-md-3"></div>
     		</div>
     	</div>
-    </div>

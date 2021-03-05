@@ -10,115 +10,118 @@ class Hasilkonsultasi extends CI_Controller
 	{
 	     parent::__construct();
 		$this->load->model("Model_Gejala");
+		$this->load->model("Pakar_model");
 	}
 	public function index()
 	{
 		if ($this->session->userdata('jabatan') != 'Pasien' || $this->session->userdata('status') != "login") {
 			redirect(base_url('login'));
 		}
+
+		$data['pakar'] = $this->Pakar_model->ambil_data();
+		$data["hasil"] = $this->perhitungan();
 	 	$this->load->view("/_partials/header_Bumil");
-	 	$this->load->view("/isi/Bumil/hasil");
+	 	$this->load->view("/isi/Bumil/hasil", $data);
 	 	$this->load->view("/_partials/footer");
 	}
-	function coba(){
+	function perhitungan(){
 		$nilai1 		= $this->Model_Gejala->ambil_nilai();
 		$data 		= $this->Model_Gejala->ambil_data();
-		$gejala1 		= $this->input->post("$gejala1"); 
-		$gejala2 		= $this->input->post("$gejala2"); 
-		$gejala3 		= $this->input->post("$gejala3"); 
-		$gejala4 		= $this->input->post("$gejala4"); 
-		$gejala5 		= $this->input->post("$gejala5"); 
-		$gejala6		= $this->input->post("$gejala6"); 
-		$gejala7 		= $this->input->post("$gejala7"); 
-		$gejala8 		= $this->input->post("$gejala8"); 
-		$gejala9 		= $this->input->post("$gejala9"); 
-		$gejala10 	= $this->input->post("$gejala10"); 
-		$gejala11 	= $this->input->post("$gejala11"); 
-		$gejala12 	= $this->input->post("$gejala12"); 
-		$gejala13 	= $this->input->post("$gejala13"); 
-		$gejala14 	= $this->input->post("$gejala14"); 
-		$gejala15 	= $this->input->post("$gejala15"); 
-		// $gejala1 		= 0; 
-		// $gejala2 		= 0.2; 
-		// $gejala3 		= 0; 
-		// $gejala4 		= 0.2; 
-		// $gejala5 		= 0; 
-		// $gejala6		= 0; 
-		// $gejala7 		= 0; 
-		// $gejala8 		= 0.2; 
-		// $gejala9 		= 0; 
-		// $gejala10 	= 0; 
-		// $gejala11 	= 0.1; 
-		// $gejala12 	= 0.2; 
-		// $gejala13 	= 0; 
-		// $gejala14 	= 0.2; 
-		// $gejala15 	= 0.2;
-		$gejalainput = array(
-			["kode_gejala" => "G01", "cf" => $gejala1, 'cf_baru'	=> ''],		 
-			["kode_gejala" => "G02", "cf" => $gejala2, 'cf_baru'	=> ''],
-			["kode_gejala" => "G03", "cf" => $gejala3, 'cf_baru'	=> ''],
-			["kode_gejala" => "G04", "cf" => $gejala4, 'cf_baru'	=> ''],
-			["kode_gejala" => "G05", "cf" => $gejala5, 'cf_baru'	=> ''],
-			["kode_gejala" => "G06", "cf" => $gejala6, 'cf_baru'	=> ''],
-			["kode_gejala" => "G07", "cf" => $gejala7, 'cf_baru'	=> ''],
-			["kode_gejala" => "G08", "cf" => $gejala8, 'cf_baru'	=> ''],
-			["kode_gejala" => "G09", "cf" => $gejala9, 'cf_baru'	=> ''],
-			["kode_gejala" => "G10", "cf" => $gejala10, 'cf_baru'	=> ''],
-			["kode_gejala" => "G11", "cf" => $gejala11, 'cf_baru'	=> ''],
-			["kode_gejala" => "G12", "cf" => $gejala12, 'cf_baru'	=> ''],
-			["kode_gejala" => "G13", "cf" => $gejala13, 'cf_baru'	=> ''],
-			["kode_gejala" => "G14", "cf" => $gejala14, 'cf_baru'	=> ''],
-			["kode_gejala" => "G15", "cf" => $gejala15, 'cf_baru'	=> ''],
-		);
-
-		// foreach ($gejalainput as $key) {
-		// 	echo '<pre>';
-		// 	// print_r($key);
-		// 	echo '</pre>';
-		// }
-		
+		if (isset($_POST['gejala']) && is_array($_POST['gejala'])) {
+			$array_gejala = $_POST['gejala'];
+			$nilai_hitung = [];
+			$gejalainput1 = [];
+			$gejalainput2 = [];
+			$gejalainput3 = [];
+			$gejalainput4 = [];
+			$gejalainput5 = [];
+			for ($i=0; $i < count($array_gejala); $i++) { 
+				$batas = str_pad($i+1, 2, "0", STR_PAD_LEFT);
+               	$kode_gejala = "G" . $batas;
+				$data = ["kode_gejala" => $kode_gejala, "cf" => $array_gejala[$i], 'cf_baru'	=> ''];
+				array_push($gejalainput1,$data);
+				array_push($gejalainput2,$data);
+				array_push($gejalainput3,$data);
+				array_push($gejalainput4,$data);
+				array_push($gejalainput5,$data);
+			}
+		}
 
 		foreach ($nilai1 as $pk) {
-			for ($i=0; $i < count($gejalainput) ; $i++) { 
-				
-				echo "<pre>";
-				// echo $key['kode_gejala'];
-				// echo $key['cf'];
-				if ($gejalainput[$i]['kode_gejala'] == $pk->kode_gejala) {
-					$cf		= $gejalainput[$i]['cf'] * $pk->cf_pakar;
-					echo $cf;
-					$gejalainput[$i]['cf_baru'] = $cf;
+			if ($pk->kode_pakar == "PK01") {
+				for ($i=0; $i < count($gejalainput1) ; $i++) { 
+					if ($gejalainput1[$i]['kode_gejala'] == $pk->kode_gejala) {
+						$cf		= $gejalainput1[$i]['cf'] * $pk->cf_pakar;
+						$gejalainput1[$i]['cf_baru'] = $cf;
+					}
 				}
-				// echo $pk->kode_gejala. " : ". $pk->cf_pakar;
-				echo "</pre>"; 
+			}elseif ($pk->kode_pakar == "PK02") {
+				for ($i=0; $i < count($gejalainput2) ; $i++) { 
+					if ($gejalainput2[$i]['kode_gejala'] == $pk->kode_gejala) {
+						$cf		= $gejalainput2[$i]['cf'] * $pk->cf_pakar;
+						$gejalainput2[$i]['cf_baru'] = $cf;
+					}
+				}
+			}elseif ($pk->kode_pakar == "PK03") {
+				for ($i=0; $i < count($gejalainput3) ; $i++) { 
+					if ($gejalainput3[$i]['kode_gejala'] == $pk->kode_gejala) {
+						$cf		= $gejalainput3[$i]['cf'] * $pk->cf_pakar;
+						$gejalainput3[$i]['cf_baru'] = $cf;
+					}
+				}
+			}elseif ($pk->kode_pakar == "PK04") {
+				for ($i=0; $i < count($gejalainput4) ; $i++) { 
+					if ($gejalainput4[$i]['kode_gejala'] == $pk->kode_gejala) {
+						$cf		= $gejalainput4[$i]['cf'] * $pk->cf_pakar;
+						$gejalainput4[$i]['cf_baru'] = $cf;
+					}
+				}
+			}elseif ($pk->kode_pakar == "PK05") {
+				for ($i=0; $i < count($gejalainput5) ; $i++) { 
+					if ($gejalainput5[$i]['kode_gejala'] == $pk->kode_gejala) {
+						$cf		= $gejalainput5[$i]['cf'] * $pk->cf_pakar;
+						$gejalainput5[$i]['cf_baru'] = $cf;
+					}
+				}
 			}
 		}
-		
-		for ($i=0; $i < count($gejalainput) ; $i++) {
-			if ($i == 0) {
-				$cfold = $gejalainput[$i]['cf_baru'];
-			}else{
-				$cfold = $cfcombine;
+		array_push($nilai_hitung, $gejalainput1);
+		array_push($nilai_hitung, $gejalainput2);
+		array_push($nilai_hitung, $gejalainput3);
+		array_push($nilai_hitung, $gejalainput4);
+		array_push($nilai_hitung, $gejalainput5);
+		$hasil = [];
+		for ($a=0; $a < count($nilai_hitung); $a++) { 
+			$batas = str_pad($a+1, 2, "0", STR_PAD_LEFT);
+               $kode_pakar = "PK" . $batas;
+			for ($i=0; $i < count($nilai_hitung[$a]) ; $i++) {
+				// echo "<pre>";
+				// print_r($nilai_hitung[$a][$i]);
+				// echo "</pre>";
+				if ($i == 0) {
+					$cfold = $nilai_hitung[$a][$i]['cf_baru'];
+				}else{
+					$cfold = $cfcombine;
+				}
+				if ($i == (count($nilai_hitung[$a]) - 1)) {
+					# code...
+					break;
+				}
+				
+				$b = $i+1;
+				$cfcombine = $cfold +  $nilai_hitung[$a][$i]['cf_baru'] * (1 - $cfold);
+				$cfold.")". " = ". $cfcombine;
+				$cfcombine = round($cfcombine, 3);
+				
 			}
-			if ($i == (count($gejalainput) - 1)) {
-				# code...
-				break;
-			} 
-			echo "<pre>"; 
-			echo 'iterasi ke : '. $i. "\n";
-			
-			$a = $i+1;
-			$cfcombine = $cfold +  $gejalainput[$a]['cf_baru'] * (1 - $cfold);
-			echo "CF Combine : ". $cfold ." + ".  $gejalainput[$a]['cf_baru'] ." * " ."(1 - ".$cfold.")". " = ". $cfcombine;
-			$cfcombine = round($cfcombine, 3);
-
-			echo "</pre>"; 
-
+			$hasil_cf = $cfcombine * 100 . "%";
+			$data = ["kode_pakar" => $kode_pakar, "hasil" => $hasil_cf];
+			array_push($hasil, $data);
 		}
-		echo $cfcombine * 100 . "%";
+		return $hasil;
 	}
 
-	function perhitungan(){
+	function coba(){
 		$nilai1 		= $this->Model_Gejala->ambil_nilai(); 
 		$gejala1 		= $this->input->post("$gejala1"); 
 		$gejala2 		= $this->input->post("$gejala2"); 
