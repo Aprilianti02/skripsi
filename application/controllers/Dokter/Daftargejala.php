@@ -22,17 +22,6 @@
 		     $this->load->view("isi/Dokter/tabelgejala", $data); // yang diubah ini!!!!!!!!!!!!
 		     $this->load->view("_partials/footer");
 		}
-
-		function add_gejala() 
-		{
-			if ($this->session->userdata('jabatan') != 'Dokter' || $this->session->userdata('status') != "login") {
-				redirect(base_url('login'));
-			}
-			$data['kode']	= $this->Model_Gejala->generate_code();
-			$this->load->view("_partials/header_dokter");
-		     $this->load->view("isi/dokter/add_gejala", $data); // yang diubah ini!!!!!!!!!!!!
-		     $this->load->view("_partials/footer");
-		}
 	}
 ?>
    

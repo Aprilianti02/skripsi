@@ -79,6 +79,8 @@
     								</div>
     							</div>
     							<hr>
+                                <center><h3>Anda Mengalami Tanda Gejala Anemia : </h3></center>
+                                <hr>
 							    <center>
     							<div class="row">
     								<div class="col-md-12">
@@ -120,6 +122,8 @@
     								</div>
     							</div>
 							    </center>
+                                <hr>
+                                <center><h3>Rutin Mengkonsumsi Tablet Fe</h3></center>
     						</div>
     					</form>
     				</div>

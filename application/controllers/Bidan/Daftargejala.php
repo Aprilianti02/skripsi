@@ -22,13 +22,6 @@
 		     $this->load->view("isi/Bidan/tabelgejala", $data); // yang diubah ini!!!!!!!!!!!!
 		     $this->load->view("_partials/footer");
 		}
-
-		function add_gejala() 
-		{
-			$this->load->view("_partials/header_bidan");
-		     $this->load->view("isi/bidan/add_gejala"); // yang diubah ini!!!!!!!!!!!!
-		     $this->load->view("_partials/footer");
-		}
 	}
 ?>
    
