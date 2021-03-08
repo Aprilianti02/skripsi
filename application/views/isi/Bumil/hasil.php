@@ -14,8 +14,7 @@
     		<div class="col-md-12">
     			<div class="card shadow mb-4">
     				<div class="card-header py-3">
-    					<form enctype="multipart/form-data" action="<?php echo base_url("bumil/perhitungan") ?>"
-    						method="POST">
+    					<form enctype="multipart/form-data" action="" method="POST">
     						<div class="card-body">
     							<div class="row">
     								<div class="col-md-5">
@@ -79,37 +78,39 @@
     								</div>
     							</div>
     							<hr>
-                                <center><h3>Anda Mengalami Tanda Gejala Anemia : </h3></center>
-                                <hr>
-							    <center>
-    							<div class="row">
-    								<div class="col-md-12">
-    									<?php foreach ($hasil as $key) { ?> <?php
+    							<center>
+    								<h3>Anda Mengalami Tanda Gejala Anemia : </h3>
+    							</center>
+    							<hr>
+    							<center>
+    								<div class="row">
+    									<div class="col-md-12">
+    										<?php foreach ($hasil as $key) { ?> <?php
 					    			switch ($key['kode_pakar']) {
 								    case 'PK01':
 									?>
-    									<h5>dr. Nina</h5>
-    									<?php
+    										<h5>dr. Nina</h5>
+    										<?php
 									    break;
 								    case 'PK02':
 									?>
-    									<h5>Bidan Susani</h5>
-    									<?php
+    										<h5>Bidan Susani</h5>
+    										<?php
 									    break;
 								    case 'PK03':
 									?>
-    									<h5>Bidan Ariani Lutfi</h5>
-    									<?php
+    										<h5>Bidan Ariani Lutfi</h5>
+    										<?php
 									    break;
 								    case 'PK04':
 									?>
-    									<h5>Bidan Indra Susilawati</h5>
-    									<?php
+    										<h5>Bidan Indra Susilawati</h5>
+    										<?php
 									    break;
 								    case 'PK05':
 									?>
-    									<h5>Bidan Frida </h5>
-    									<?php
+    										<h5>Bidan Frida </h5>
+    										<?php
 									    break;
 								    
 								    default:
@@ -117,13 +118,24 @@
 									    break;
 							    }
 							?>
-    									<p><?php echo $key['hasil'] ?></p>
-    									<?php } ?>
+    										<p><?php echo $key['hasil'] ?></p>
+    										<?php } ?>
+    									</div>
+    								</div>
+    							</center>
+    							<hr>
+    							<center>
+    								<h3>Rutin Mengkonsumsi Tablet Fe</h3>
+    							</center>
+    							<hr>
+    							<div class="row">
+    								<div class="col-md-2">
+    									<div class="form-group">
+    										<input type="submit" class="form-control btn btn-primary btn-pill"
+    											value="SIMPAN DATA" name="simpan_data" id="simpan_data">
+    									</div>
     								</div>
     							</div>
-							    </center>
-                                <hr>
-                                <center><h3>Rutin Mengkonsumsi Tablet Fe</h3></center>
     						</div>
     					</form>
     				</div>
