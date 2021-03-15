@@ -14,7 +14,7 @@
     		<div class="col-md-12">
     			<div class="card shadow mb-4">
     				<div class="card-header py-3">
-    					<form enctype="multipart/form-data" action="" method="POST">
+    					<form enctype="multipart/form-data" action="<?php echo base_url("bumil/hasilkonsultasi/coba") ?>" method="POST">
     						<div class="card-body">
     							<div class="row">
     								<div class="col-md-5">
@@ -25,6 +25,10 @@
     										<input class="form-control" id="kode_pasien" name="kode_pasien"
     											type="text" placeholder="Nomor Rekam Medis" required=""
     											value="<?php echo $this->session->userdata("kode_pasien") ?>"
+    											readonly="">
+    										<input class="form-control" id="kode_periksa" name="kode_periksa"
+    											type="text" placeholder="Nomor Rekam Medis" required=""
+    											value="<?php echo date('Ymd') ?>"
     											readonly="">
     									</div>
     								</div>

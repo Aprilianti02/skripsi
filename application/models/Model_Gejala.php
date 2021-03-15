@@ -27,6 +27,30 @@
                $kode_gejala = "G" . $batas;
                return $kode_gejala;
           }
+
+          function simpan_hasil($data1)
+          {
+               $this->db->insert("tbl_hasil", $data1);
+          }
+          
+          function simpan_detail($data2)
+          {
+               $this->db->insert("tbl_det_hasil", $data2);
+          }
+
+          function get_riwayat()
+          {
+               return $this->db->get("tbl_hasil")->result();
+          }
+
+          function get_all_riwayat()
+          {
+               return $this->db->query("SELECT h.kode_periksa, h.kode_pasien, p.nama, dh.kode_pakar, pk.nama_pakar, dh.nilai_hasil FROM tbl_hasil AS h INNER JOIN tbl_det_hasil AS dh ON h.kode_periksa = dh.kode_periksa INNER JOIN tbl_pasien AS p ON p.kode_pasien = p.kode_pasien   INNER JOIN tbl_pakar AS pk ON pk.kode_pakar = dh.kode_pakar")->result();
+          }
+          function get_riwayat_for_pakar($kode_pakar)
+          {
+               return $this->db->query("SELECT h.kode_periksa, h.kode_pasien, p.nama, dh.kode_pakar, pk.nama_pakar, dh.nilai_hasil FROM tbl_hasil AS h INNER JOIN tbl_det_hasil AS dh ON h.kode_periksa = dh.kode_periksa INNER JOIN tbl_pasien AS p ON p.kode_pasien = p.kode_pasien   INNER JOIN tbl_pakar AS pk ON pk.kode_pakar = dh.kode_pakar WHERE dh.kode_pakar = '$kode_pakar'")->result();
+          }
      }
 
 ?>
