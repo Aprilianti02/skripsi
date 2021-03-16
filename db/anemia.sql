@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2021 at 09:55 AM
+-- Generation Time: Mar 16, 2021 at 01:41 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -21,6 +21,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `anemia`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_det_hasil`
+--
+
+CREATE TABLE `tbl_det_hasil` (
+  `kode_det_hasil` int(11) NOT NULL,
+  `kode_periksa` varchar(11) NOT NULL,
+  `kode_pakar` varchar(5) NOT NULL,
+  `nilai_hasil` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_det_hasil`
+--
+
+INSERT INTO `tbl_det_hasil` (`kode_det_hasil`, `kode_periksa`, `kode_pakar`, `nilai_hasil`) VALUES
+(1, '20210315', 'PK01', 86.6),
+(2, '20210315', 'PK02', 76.3),
+(3, '20210315', 'PK03', 80.9),
+(4, '20210315', 'PK04', 80.4),
+(5, '20210315', 'PK05', 83.2);
 
 -- --------------------------------------------------------
 
@@ -53,6 +77,24 @@ INSERT INTO `tbl_gejala` (`kode_gejala`, `nama_gejala`) VALUES
 ('G13', 'Daya Konsentrasi rendah'),
 ('G14', 'Rambut Rontok'),
 ('G15', 'Memburuknya Masalah Jantung');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_hasil`
+--
+
+CREATE TABLE `tbl_hasil` (
+  `kode_periksa` varchar(11) NOT NULL,
+  `kode_pasien` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_hasil`
+--
+
+INSERT INTO `tbl_hasil` (`kode_periksa`, `kode_pasien`) VALUES
+('20210315', 'P00001');
 
 -- --------------------------------------------------------
 
@@ -201,10 +243,25 @@ INSERT INTO `tbl_pasien` (`kode_pasien`, `nama`, `tgl_lahir`, `wilayah`, `alamat
 --
 
 --
+-- Indexes for table `tbl_det_hasil`
+--
+ALTER TABLE `tbl_det_hasil`
+  ADD PRIMARY KEY (`kode_det_hasil`),
+  ADD KEY `kode_periksa` (`kode_periksa`),
+  ADD KEY `kode_pakar` (`kode_pakar`);
+
+--
 -- Indexes for table `tbl_gejala`
 --
 ALTER TABLE `tbl_gejala`
   ADD PRIMARY KEY (`kode_gejala`);
+
+--
+-- Indexes for table `tbl_hasil`
+--
+ALTER TABLE `tbl_hasil`
+  ADD PRIMARY KEY (`kode_periksa`),
+  ADD KEY `kode_pasien` (`kode_pasien`);
 
 --
 -- Indexes for table `tbl_nilai`
@@ -231,6 +288,12 @@ ALTER TABLE `tbl_pasien`
 --
 
 --
+-- AUTO_INCREMENT for table `tbl_det_hasil`
+--
+ALTER TABLE `tbl_det_hasil`
+  MODIFY `kode_det_hasil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `tbl_nilai`
 --
 ALTER TABLE `tbl_nilai`
@@ -239,6 +302,19 @@ ALTER TABLE `tbl_nilai`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `tbl_det_hasil`
+--
+ALTER TABLE `tbl_det_hasil`
+  ADD CONSTRAINT `tbl_det_hasil_ibfk_1` FOREIGN KEY (`kode_periksa`) REFERENCES `tbl_hasil` (`kode_periksa`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_det_hasil_ibfk_2` FOREIGN KEY (`kode_pakar`) REFERENCES `tbl_pakar` (`kode_pakar`);
+
+--
+-- Constraints for table `tbl_hasil`
+--
+ALTER TABLE `tbl_hasil`
+  ADD CONSTRAINT `tbl_hasil_ibfk_1` FOREIGN KEY (`kode_pasien`) REFERENCES `tbl_pasien` (`kode_pasien`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_nilai`
