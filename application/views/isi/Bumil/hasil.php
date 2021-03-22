@@ -29,7 +29,7 @@
     										<input class="form-control" id="kode_periksa" name="kode_periksa"
     											type="text" placeholder="Nomor Rekam Medis" required=""
     											value="<?php echo date('Ymd') ?>"
-    											readonly="">
+    											readonly="" hidden="">
     									</div>
     								</div>
     								<div class="col-md-2"></div>
@@ -137,6 +137,12 @@
     									<div class="form-group">
     										<input type="submit" class="form-control btn btn-primary btn-pill"
     											value="SIMPAN DATA" name="simpan_data" id="simpan_data">
+    									</div>
+    								</div>
+    								<div class="col-md-2">
+    									<div class="form-group">
+    										<input type="button" class="form-control btn btn-primary btn-pill"
+    											value="CETAK HASIL PDF" name="simpan_data" id="simpan_data">
     									</div>
     								</div>
     							</div>
