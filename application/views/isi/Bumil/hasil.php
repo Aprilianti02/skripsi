@@ -136,13 +136,12 @@
     								<div class="col-md-2">
     									<div class="form-group">
     										<input type="submit" class="form-control btn btn-primary btn-pill"
-    											value="SIMPAN DATA" name="simpan_data" id="simpan_data">
+    											value="Simpan Data" name="simpan_data" id="simpan_data">
     									</div>
     								</div>
     								<div class="col-md-2">
     									<div class="form-group">
-    										<input type="button" class="form-control btn btn-primary btn-pill"
-    											value="CETAK HASIL PDF" name="simpan_data" id="simpan_data">
+									    <a href="<?php echo base_url("bumil/hasilkonsultasi/cetak_pdf") ?>" target="_blank" class="form-control btn btn-primary btn-pill" ame="cetak_data" id="cetak_data">Cetak PDF</a>
     									</div>
     								</div>
     							</div>

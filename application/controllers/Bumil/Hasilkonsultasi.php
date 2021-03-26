@@ -6,12 +6,15 @@
 class Hasilkonsultasi extends CI_Controller
 {
 	
+	protected $array_gejala = [];
+
 	function __construct()
 	{
 	     parent::__construct();
 		$this->load->model("Model_Gejala");
 		$this->load->model("Pakar_model");
 	}
+
 	public function index()
 	{
 		if ($this->session->userdata('jabatan') != 'Pasien' || $this->session->userdata('status') != "login") {
@@ -20,6 +23,7 @@ class Hasilkonsultasi extends CI_Controller
 
 		$data['pakar'] = $this->Pakar_model->ambil_data();
 		$data["hasil"] = $this->perhitungan();
+		$this->session->set_userdata('data_gejala_pasien', $this->array_gejala);
 	 	$this->load->view("/_partials/header_Bumil");
 	 	$this->load->view("/isi/Bumil/hasil", $data);
 	 	$this->load->view("/_partials/footer");
@@ -28,17 +32,17 @@ class Hasilkonsultasi extends CI_Controller
 		$nilai1 		= $this->Model_Gejala->ambil_nilai();
 		$data 		= $this->Model_Gejala->ambil_data();
 		if (isset($_POST['gejala']) && is_array($_POST['gejala'])) {
-			$array_gejala = $_POST['gejala'];
+			$this->array_gejala = $_POST['gejala'];
 			$nilai_hitung = [];
 			$gejalainput1 = [];
 			$gejalainput2 = [];
 			$gejalainput3 = [];
 			$gejalainput4 = [];
 			$gejalainput5 = [];
-			for ($i=0; $i < count($array_gejala); $i++) { 
+			for ($i=0; $i < count($this->array_gejala); $i++) { 
 				$batas = str_pad($i+1, 2, "0", STR_PAD_LEFT);
                	$kode_gejala = "G" . $batas;
-				$data = ["kode_gejala" => $kode_gejala, "cf" => $array_gejala[$i], 'cf_baru'	=> ''];
+				$data = ["kode_gejala" => $kode_gejala, "cf" => $this->array_gejala[$i], 'cf_baru'	=> ''];
 				array_push($gejalainput1,$data);
 				array_push($gejalainput2,$data);
 				array_push($gejalainput3,$data);
@@ -126,9 +130,27 @@ class Hasilkonsultasi extends CI_Controller
 		$kode_periksa	= date("Ymd");
 		$kode_pasien	= $this->input->post("kode_pasien");
 		$hasil		= $this->session->userdata('hasil');
+		$data_gejala_pasien = $this->session->userdata('data_gejala_pasien');
+		print_r($data_gejala_pasien[0]);
+		
 		$data1 		= [
-			'kode_periksa'	=> $kode_periksa,
-			'kode_pasien'	=> $kode_pasien
+			'kode_periksa'		=> $kode_periksa,
+			'kode_pasien'		=> $kode_pasien,
+			'nilai_gejala1'	=> $data_gejala_pasien[0],
+			'nilai_gejala2'	=> $data_gejala_pasien[1],
+			'nilai_gejala3'	=> $data_gejala_pasien[2],
+			'nilai_gejala4'	=> $data_gejala_pasien[3],
+			'nilai_gejala5'	=> $data_gejala_pasien[4],
+			'nilai_gejala6'	=> $data_gejala_pasien[5],
+			'nilai_gejala7'	=> $data_gejala_pasien[6],
+			'nilai_gejala8'	=> $data_gejala_pasien[7],
+			'nilai_gejala9'	=> $data_gejala_pasien[8],
+			'nilai_gejala10'	=> $data_gejala_pasien[9],
+			'nilai_gejala11'	=> $data_gejala_pasien[10],
+			'nilai_gejala12'	=> $data_gejala_pasien[11],
+			'nilai_gejala13'	=> $data_gejala_pasien[12],
+			'nilai_gejala14'	=> $data_gejala_pasien[13],
+			'nilai_gejala15'	=> $data_gejala_pasien[14]
 		];
 		$this->Model_Gejala->simpan_hasil($data1);
 		foreach ($hasil as $key) {
@@ -145,6 +167,13 @@ class Hasilkonsultasi extends CI_Controller
 	function ajax(){
 		$data = $this->Model_Gejala->get_riwayat();
 		echo json_encode($data);
+	}
+
+	function cetak_pdf(){
+		$data['pakar'] 	= $this->Pakar_model->ambil_data();
+		$data['gejala']	= $this->Model_Gejala->ambil_data();
+		$data['hasil']		= $this->session->userdata('hasil');
+		$this->load->view("/isi/Bumil/hasil_pdf", $data);
 	}
 }
 ?>

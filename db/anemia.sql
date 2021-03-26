@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2021 at 01:47 PM
+-- Generation Time: Mar 22, 2021 at 01:10 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -86,15 +86,30 @@ INSERT INTO `tbl_gejala` (`kode_gejala`, `nama_gejala`) VALUES
 
 CREATE TABLE `tbl_hasil` (
   `kode_periksa` varchar(11) NOT NULL,
-  `kode_pasien` varchar(30) NOT NULL
+  `kode_pasien` varchar(30) NOT NULL,
+  `nilai_gejala1` float NOT NULL,
+  `nilai_gejala2` float NOT NULL,
+  `nilai_gejala3` float NOT NULL,
+  `nilai_gejala4` float NOT NULL,
+  `nilai_gejala5` float NOT NULL,
+  `nilai_gejala6` float NOT NULL,
+  `nilai_gejala7` float NOT NULL,
+  `nilai_gejala8` float NOT NULL,
+  `nilai_gejala9` float NOT NULL,
+  `nilai_gejala10` float NOT NULL,
+  `nilai_gejala11` float NOT NULL,
+  `nilai_gejala12` float NOT NULL,
+  `nilai_gejala13` float NOT NULL,
+  `nilai_gejala14` float NOT NULL,
+  `nilai_gejala15` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_hasil`
 --
 
-INSERT INTO `tbl_hasil` (`kode_periksa`, `kode_pasien`) VALUES
-('20210315', 'P00001');
+INSERT INTO `tbl_hasil` (`kode_periksa`, `kode_pasien`, `nilai_gejala1`, `nilai_gejala2`, `nilai_gejala3`, `nilai_gejala4`, `nilai_gejala5`, `nilai_gejala6`, `nilai_gejala7`, `nilai_gejala8`, `nilai_gejala9`, `nilai_gejala10`, `nilai_gejala11`, `nilai_gejala12`, `nilai_gejala13`, `nilai_gejala14`, `nilai_gejala15`) VALUES
+('20210315', 'P00001', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
