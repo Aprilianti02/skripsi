@@ -12,35 +12,59 @@
 	<hr class="sidebar-divider">
 
 	<!-- Nav Item - Beranda-->
-	<li class="nav-item">
-		<a class="nav-link" href="<?php echo base_url ('Bumil/Beranda')?> ">
+	<?php if ($this->uri->segment('2') == 'beranda') {?>
+	<li class="nav-item active">
+		<?php }else{ ?>
+	<li class="nav-item ">
+		<?php } ?>
+		<a class="nav-link" href="<?php echo base_url ('Bumil/beranda')?> ">
 			<span>Beranda</span>
 		</a>
 	</li>
 
 	<!-- Nav Item - Petunjuk -->
-	<li class="nav-item">
-		<a class="nav-link" href="<?php echo base_url ('Bumil/Petunjuk')?> ">
+	<?php if ($this->uri->segment('2') == 'petunjuk') {?>
+	<li class="nav-item active">
+		<?php }else{ ?>
+	<li class="nav-item ">
+		<?php } ?>
+		<a class="nav-link" href="<?php echo base_url ('Bumil/petunjuk')?> ">
 			<span>Petunjuk</span></a>
 	</li>
 	<!-- Nav Item - informasi -->
-	<li class="nav-item">
-		<a class="nav-link" href="<?php echo base_url ('Bumil/Informasi')?> ">
+	<?php if ($this->uri->segment('2') == 'informasi') {?>
+	<li class="nav-item active">
+		<?php }else{ ?>
+	<li class="nav-item ">
+		<?php } ?>
+		<a class="nav-link" href="<?php echo base_url ('Bumil/informasi')?> ">
 			<span>Informasi</span></a>
 	</li>
 	<!-- Nav Item - Gejala -->
-	<li class="nav-item">
-		<a class="nav-link" href="<?php echo base_url ('Bumil/Daftargejala')?> ">
+	<?php if ($this->uri->segment('2') == 'daftargejala') {?>
+	<li class="nav-item active">
+		<?php }else{ ?>
+	<li class="nav-item ">
+		<?php } ?>
+		<a class="nav-link" href="<?php echo base_url ('Bumil/daftargejala')?> ">
 			<span>Gejala</span></a>
 	</li>
 	<!-- Nav Item - Gejala -->
-	<li class="nav-item">
-		<a class="nav-link" href="<?php echo base_url ('Bumil/Konsultasi')?> ">
+	<?php if ($this->uri->segment('2') == 'konsultasi') {?>
+	<li class="nav-item active">
+		<?php }else{ ?>
+	<li class="nav-item ">
+		<?php } ?>
+		<a class="nav-link" href="<?php echo base_url ('Bumil/konsultasi')?> ">
 			<span>Konsultasi</span></a>
 	</li>
 	<!-- Nav Item - Gejala -->
-	<li class="nav-item">
-		<a class="nav-link" href="<?php echo base_url ('Bumil/Riwayat')?> ">
+	<?php if ($this->uri->segment('2') == 'riwayat') {?>
+	<li class="nav-item active">
+		<?php }else{ ?>
+	<li class="nav-item ">
+		<?php } ?>
+		<a class="nav-link" href="<?php echo base_url ('Bumil/riwayat')?> ">
 			<span>Hasil</span></a>
 	</li>
 

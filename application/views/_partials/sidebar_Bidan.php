@@ -11,30 +11,50 @@
 	<hr class="sidebar-divider">
 
 	<!-- Nav Item - Beranda-->
-	<li class="nav-item">
-		<a class="nav-link" href="<?php echo base_url ('Bidan/Beranda')?> ">
+	<?php if ($this->uri->segment('2') == 'beranda') {?>
+	<li class="nav-item active">
+	<?php }else{ ?>
+	<li class="nav-item ">
+	<?php } ?>
+		<a class="nav-link" href="<?php echo base_url ('Bidan/beranda')?> ">
 			<span>Beranda</span>
 		</a>
 	</li>
 
 	<!-- Nav Item - Petunjuk -->
-	<li class="nav-item">
-		<a class="nav-link" href="<?php echo base_url ('Bidan/Petunjuk')?> ">
+	<?php if ($this->uri->segment('2') == 'petunjuk') {?>
+	<li class="nav-item active">
+	<?php }else{ ?>
+	<li class="nav-item ">
+	<?php } ?>
+		<a class="nav-link" href="<?php echo base_url ('Bidan/petunjuk')?> ">
 			<span>Petunjuk</span></a>
 	</li>
 	<!-- Nav Item - informasi -->
-	<li class="nav-item">
-		<a class="nav-link" href="<?php echo base_url ('Bidan/Informasi')?> ">
+	<?php if ($this->uri->segment('2') == 'informasi') {?>
+	<li class="nav-item active">
+	<?php }else{ ?>
+	<li class="nav-item ">
+	<?php } ?>
+		<a class="nav-link" href="<?php echo base_url ('Bidan/informasi')?> ">
 			<span>Informasi</span></a>
 	</li>
 	<!-- Nav Item - Gejala -->
-	<li class="nav-item">
-		<a class="nav-link" href="<?php echo base_url ('Bidan/Daftarpasien')?> ">
+	<?php if ($this->uri->segment('2') == 'daftarpasien') {?>
+	<li class="nav-item active">
+	<?php }else{ ?>
+	<li class="nav-item ">
+	<?php } ?>
+		<a class="nav-link" href="<?php echo base_url ('Bidan/daftarpasien')?> ">
 			<span>Daftar Pasien</span></a>
 	</li>
 	<!-- Nav Item - Gejala -->
-	<li class="nav-item">
-		<a class="nav-link" href="<?php echo base_url ('Bidan/Daftargejala')?> ">
+	<?php if ($this->uri->segment('2') == 'daftargejala') {?>
+	<li class="nav-item active">
+	<?php }else{ ?>
+	<li class="nav-item ">
+	<?php } ?>
+		<a class="nav-link" href="<?php echo base_url ('Bidan/daftargejala')?> ">
 			<span>Daftar Gejala</span></a>
 	</li>
 
