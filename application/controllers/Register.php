@@ -36,7 +36,7 @@
                ];
 
                $this->Register_model->tambah_data($data);
-               redirect("login");
+               redirect(base_url("login"));
           }
      }
      
