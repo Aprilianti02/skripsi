@@ -134,7 +134,7 @@ class Hasilkonsultasi extends CI_Controller
 	}
 	
 	function coba(){
-		$kode_periksa	= date("Ymd");
+		$kode_periksa	= $this->Model_Gejala->kode_periksa();
 		$kode_pasien	= $this->input->post("kode_pasien");
 		$hasil		= $this->session->userdata('hasil');
 		$data_gejala_pasien = $this->session->userdata('data_gejala_pasien');
