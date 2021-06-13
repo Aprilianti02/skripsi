@@ -28,8 +28,10 @@
                return $kode_gejala;
           }
           function kode_periksa() {
+               date_default_timezone_set('Asia/Jakarta');
                $hari  = date("Ymd");
-               $query = $this->db->query("SELECT MAX(RIGHT(tbl_hasil.kode_periksa,3)) AS kode_periksa FROM tbl_hasil WHERE (SELECT LEFT(kode_periksa, 8) From tbl_hasil) = '$hari' ORDER BY kode_periksa DESC LIMIT 1");
+               echo $hari;
+               $query = $this->db->query("SELECT MAX(RIGHT(tbl_hasil.kode_periksa,3)) AS kode_periksa FROM tbl_hasil WHERE (SELECT DISTINCT LEFT(kode_periksa, 8) From tbl_hasil) = '$hari' ORDER BY kode_periksa DESC LIMIT 1");
 
                if ($query->num_rows() <> 0) {
                     # code...
