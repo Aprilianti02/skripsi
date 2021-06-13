@@ -95,6 +95,8 @@ class Hasilkonsultasi extends CI_Controller
 		array_push($nilai_hitung, $gejalainput4);
 		array_push($nilai_hitung, $gejalainput5);
 		$hasil = [];
+		$rata2 = [];
+		$total_cf = 0;
 		for ($a=0; $a < count($nilai_hitung); $a++) { 
 			$batas = str_pad($a+1, 2, "0", STR_PAD_LEFT);
                $kode_pakar = "PK" . $batas;
@@ -118,10 +120,15 @@ class Hasilkonsultasi extends CI_Controller
 				$cfcombine = round($cfcombine, 3);
 				
 			}
+			$total_cf = $total_cf + $cfcombine;
 			$hasil_cf = $cfcombine * 100 . "%";
 			$data = ["kode_pakar" => $kode_pakar, "hasil" => $hasil_cf];
 			array_push($hasil, $data);
 		}
+		$rata2_cf = ($total_cf/5) * 100;
+		// array_push($rata2, );
+		array_push($hasil, ["kode_pakar" => "", "hasil" => "", ["rata2_cf" => $rata2_cf]]);
+		// echo $hasil;
 		$this->session->set_userdata('hasil', $hasil);
 		return $hasil;
 	}

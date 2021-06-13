@@ -116,13 +116,26 @@
     										<h5>Bidan Frida </h5>
     										<?php
 									    break;
-								    
 								    default:
 									    # code...
 									    break;
 							    }
 							?>
-    										<p><?php echo $key['hasil'] ?></p>
+							
+    										<p>
+										    <?php 
+										    if ($key['hasil'] != null) {
+											    # code...
+											    echo $key['hasil'];
+										    }else{
+											    echo "";
+										    }
+											?>
+										</p>
+										<?php if($key['kode_pakar'] == '' && $key['hasil'] == ''){ ?>
+											<h5>Rata - rata : <?php echo $key[0]['rata2_cf']."%"?></h5>
+											
+										<?php } ?>
     										<?php } ?>
     									</div>
     								</div>
