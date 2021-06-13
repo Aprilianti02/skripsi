@@ -51,6 +51,10 @@
           {
                return $this->db->query("SELECT h.kode_periksa, h.kode_pasien, p.nama, dh.kode_pakar, pk.nama_pakar, dh.nilai_hasil FROM tbl_hasil AS h INNER JOIN tbl_det_hasil AS dh ON h.kode_periksa = dh.kode_periksa INNER JOIN tbl_pasien AS p ON p.kode_pasien = p.kode_pasien   INNER JOIN tbl_pakar AS pk ON pk.kode_pakar = dh.kode_pakar WHERE dh.kode_pakar = '$kode_pakar'")->result();
           }
+          function get_riwayat_for_pasien($kode_pakar)
+          {
+               return $this->db->query("SELECT h.kode_periksa, h.kode_pasien, p.nama, dh.kode_pakar, pk.nama_pakar, dh.nilai_hasil FROM tbl_hasil AS h INNER JOIN tbl_det_hasil AS dh ON h.kode_periksa = dh.kode_periksa INNER JOIN tbl_pasien AS p ON p.kode_pasien = p.kode_pasien   INNER JOIN tbl_pakar AS pk ON pk.kode_pakar = dh.kode_pakar WHERE p.alamat = '$kode_pakar'")->result();
+          }
      }
 
 ?>
