@@ -132,13 +132,12 @@ class Hasilkonsultasi extends CI_Controller
 		$this->session->set_userdata('hasil', $hasil);
 		return $hasil;
 	}
-
+	
 	function coba(){
 		$kode_periksa	= date("Ymd");
 		$kode_pasien	= $this->input->post("kode_pasien");
 		$hasil		= $this->session->userdata('hasil');
 		$data_gejala_pasien = $this->session->userdata('data_gejala_pasien');
-		print_r($data_gejala_pasien[0]);
 		
 		$data1 		= [
 			'kode_periksa'		=> $kode_periksa,
@@ -157,16 +156,20 @@ class Hasilkonsultasi extends CI_Controller
 			'nilai_gejala12'	=> $data_gejala_pasien[11],
 			'nilai_gejala13'	=> $data_gejala_pasien[12],
 			'nilai_gejala14'	=> $data_gejala_pasien[13],
-			'nilai_gejala15'	=> $data_gejala_pasien[14]
+			'nilai_gejala15'	=> $data_gejala_pasien[14],
+			'rata2'			=> $hasil[5][0]['rata2_cf']
 		];
 		$this->Model_Gejala->simpan_hasil($data1);
 		foreach ($hasil as $key) {
-			$data2 = [
-				"kode_periksa"	=> $kode_periksa,
-				"kode_pakar"	=> $key['kode_pakar'],
-				"nilai_hasil"	=> $key['hasil']
-			];
-			$this->Model_Gejala->simpan_detail($data2);
+			if ($key['kode_pakar'] != "" && $key['hasil'] != '') {
+				# code...
+				$data2 = [
+					"kode_periksa"	=> $kode_periksa,
+					"kode_pakar"	=> $key['kode_pakar'],
+					"nilai_hasil"	=> $key['hasil']
+				];
+				$this->Model_Gejala->simpan_detail($data2);
+			}
 		}
 		redirect(base_url("bumil/riwayat"));
 	}

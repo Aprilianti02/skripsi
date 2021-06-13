@@ -30,7 +30,7 @@
 					<tr>
 						<td><?php echo $r->kode_periksa ?></td>
 						<td><?php echo $r->nama ?></td>
-						<td><?php echo $r->nilai_hasil."%" ?></td>
+						<td><?php echo $r->rata2."%" ?></td>
 					</tr>
 					<?php } ?>
 				</tbody>
