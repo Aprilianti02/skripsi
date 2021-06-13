@@ -159,10 +159,8 @@ class Hasilkonsultasi extends CI_Controller
 			'nilai_gejala15'	=> $data_gejala_pasien[14],
 			'rata2'			=> $hasil[5][0]['rata2_cf']
 		];
-		echo "<pre>";
-		print_r($data1);
-		echo "</pre>";
-		// $this->Model_Gejala->simpan_hasil($data1);
+
+		$this->Model_Gejala->simpan_hasil($data1);
 		foreach ($hasil as $key) {
 			if ($key['kode_pakar'] != "" && $key['hasil'] != '') {
 				# code...
@@ -171,10 +169,10 @@ class Hasilkonsultasi extends CI_Controller
 					"kode_pakar"	=> $key['kode_pakar'],
 					"nilai_hasil"	=> $key['hasil']
 				];
-				// $this->Model_Gejala->simpan_detail($data2);
+				$this->Model_Gejala->simpan_detail($data2);
 			}
 		}
-		// redirect(base_url("bumil/riwayat"));
+		redirect(base_url("bumil/riwayat"));
 	}
 
 	function ajax(){
