@@ -31,7 +31,7 @@
                date_default_timezone_set('Asia/Jakarta');
                $hari  = date("Ymd");
                echo $hari;
-               $query = $this->db->query("SELECT MAX(RIGHT(tbl_hasil.kode_periksa,3)) AS kode_periksa FROM tbl_hasil WHERE (SELECT DISTINCT LEFT(kode_periksa, 8) From tbl_hasil) = '$hari' ORDER BY kode_periksa DESC LIMIT 1");
+               $query = $this->db->query("SELECT MAX(RIGHT(tbl_hasil.kode_periksa,3)) AS kode_periksa FROM tbl_hasil WHERE (SELECT DISTINCT LEFT(kode_periksa, 8) AS kode_periksa From tbl_hasil WHERE LEFT(kode_periksa, 8) = '$hari') = '$hari' ORDER BY kode_periksa DESC LIMIT 1");
 
                if ($query->num_rows() <> 0) {
                     # code...

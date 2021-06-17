@@ -36,7 +36,7 @@
 					<tbody>
 						<?php foreach ($pasien as $p) { ?>
 						<tr>
-							<td><?php echo $p->no_rm ?></td>
+							<td><?php echo $p->kode_pasien	 ?></td>
 							<td><?php echo $p->nama ?></td>
 							<td><?php echo $p->tgl_lahir ?></td>
 							<td><?php echo $p->wilayah ?></td>
