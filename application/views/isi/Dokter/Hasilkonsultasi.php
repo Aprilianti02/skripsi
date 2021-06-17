@@ -17,14 +17,6 @@
 						<th>Nama Pasien</th>
 						<th>Tanda Gejala Anemia</th>
 					</tr>
-				</thead>
-				<tfoot>
-					<tr>
-						<th>Kode Periksa</th>
-						<th>Nama Pasien</th>
-						<th>Tanda Gejala Anemia</th>
-					</tr>
-				</tfoot>
 				<tbody>
 					<?php foreach ($riwayat as $r){ ?>
 					<tr>

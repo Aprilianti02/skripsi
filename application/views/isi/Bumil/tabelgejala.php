@@ -16,13 +16,6 @@
 						<th>Kode Gejala</th>
 						<th>Nama Gejala</th>
 					</tr>
-				</thead>
-				<tfoot>
-					<tr>
-						<th>Kode Gejala</th>
-						<th>Nama Gejala</th>
-					</tr>
-				</tfoot>
 				<tbody>
 					<?php foreach ($gejala as $g){ ?>
 					<tr>

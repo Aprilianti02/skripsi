@@ -17,16 +17,6 @@
 							<th>Wilayah</th>
 							<th>Alamat</th>
 						</tr>
-					</thead>
-					<tfoot>
-						<tr>
-							<th>No. Pasien</th>
-							<th>Nama Ibu Hamil</th>
-							<th>Tanggal Lahir</th>
-							<th>Wilayah</th>
-							<th>Alamat</th>
-						</tr>
-					</tfoot>
 					<tbody>
 						<?php foreach ($pasien as $p) { ?>
 							<tr>

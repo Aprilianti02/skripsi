@@ -20,14 +20,6 @@
 							<th>Nama Gejala</th>
 							<th>Action</th>
 						</tr>
-					</thead>
-					<tfoot>
-						<tr>
-							<th>Kode Gejala</th>
-							<th>Nama Gejala</th>
-							<th>Action</th>
-						</tr>
-					</tfoot>
 					<tbody>
                         <?php foreach ($gejala as $g){ ?>
 						<tr>
