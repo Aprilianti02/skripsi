@@ -115,8 +115,7 @@ class Hasilkonsultasi extends CI_Controller
 				}
 				
 				$b = $i+1;
-				$cfcombine = $cfold +  $nilai_hitung[$a][$i]['cf_baru'] * (1 - $cfold);
-				$cfold.")". " = ". $cfcombine;
+				$cfcombine = $cfold +  $nilai_hitung[$a][$i+1]['cf_baru'] * (1 - $cfold);
 				$cfcombine = round($cfcombine, 3);
 				
 			}
