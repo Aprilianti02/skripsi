@@ -23,10 +23,10 @@ class Hasilkonsultasi extends CI_Controller
 
 		$data['pakar'] = $this->Pakar_model->ambil_data();
 		$data["hasil"] = $this->perhitungan();
-		// $this->session->set_userdata('data_gejala_pasien', $this->array_gejala);
-	 	// $this->load->view("/_partials/header_Bumil");
-	 	// $this->load->view("/isi/Bumil/hasil", $data);
-	 	// $this->load->view("/_partials/footer");
+		$this->session->set_userdata('data_gejala_pasien', $this->array_gejala);
+	 	$this->load->view("/_partials/header_Bumil");
+	 	$this->load->view("/isi/Bumil/hasil", $data);
+	 	$this->load->view("/_partials/footer");
 	}
 	function perhitungan(){
 		$nilai1 		= $this->Model_Gejala->ambil_nilai();
@@ -63,9 +63,6 @@ class Hasilkonsultasi extends CI_Controller
 				for ($i=0; $i < count($gejalainput2) ; $i++) { 
 					if ($gejalainput2[$i]['kode_gejala'] == $pk->kode_gejala) {
 						$cf		= $gejalainput2[$i]['cf'] * $pk->cf_pakar;
-						echo "<pre>";
-						echo "cf PK02		= ".$gejalainput2[$i]['cf']." * ".$pk->cf_pakar." = ".$cf;
-						echo "</pre>";
 						$gejalainput2[$i]['cf_baru'] = $cf;
 					}
 				}
@@ -73,9 +70,6 @@ class Hasilkonsultasi extends CI_Controller
 				for ($i=0; $i < count($gejalainput3) ; $i++) { 
 					if ($gejalainput3[$i]['kode_gejala'] == $pk->kode_gejala) {
 						$cf		= $gejalainput3[$i]['cf'] * $pk->cf_pakar;
-						echo "<pre>";
-						echo "cf PK03		= ".$gejalainput3[$i]['cf']." * ".$pk->cf_pakar." = ".$cf;
-						echo "</pre>";
 						$gejalainput3[$i]['cf_baru'] = $cf;
 					}
 				}
@@ -83,9 +77,6 @@ class Hasilkonsultasi extends CI_Controller
 				for ($i=0; $i < count($gejalainput4) ; $i++) { 
 					if ($gejalainput4[$i]['kode_gejala'] == $pk->kode_gejala) {
 						$cf		= $gejalainput4[$i]['cf'] * $pk->cf_pakar;
-						echo "<pre>";
-						echo "cf PK04		= ".$gejalainput4[$i]['cf']." * ".$pk->cf_pakar." = ".$cf;
-						echo "</pre>";
 						$gejalainput4[$i]['cf_baru'] = $cf;
 					}
 				}
@@ -93,9 +84,6 @@ class Hasilkonsultasi extends CI_Controller
 				for ($i=0; $i < count($gejalainput5) ; $i++) { 
 					if ($gejalainput5[$i]['kode_gejala'] == $pk->kode_gejala) {
 						$cf		= $gejalainput5[$i]['cf'] * $pk->cf_pakar;
-						echo "<pre>";
-						echo "cf PK05		= ".$gejalainput5[$i]['cf']." * ".$pk->cf_pakar." = ".$cf;
-						echo "</pre>";
 						$gejalainput5[$i]['cf_baru'] = $cf;
 					}
 				}
@@ -112,7 +100,6 @@ class Hasilkonsultasi extends CI_Controller
 		for ($a=0; $a < count($nilai_hitung); $a++) { 
 			$batas = str_pad($a+1, 2, "0", STR_PAD_LEFT);
                $kode_pakar = "PK" . $batas;
-			echo $kode_pakar."\n";
 			for ($i=0; $i < count($nilai_hitung[$a]) ; $i++) {
 				// echo "<pre>";
 				// print_r($nilai_hitung[$a][$i]);
@@ -128,20 +115,13 @@ class Hasilkonsultasi extends CI_Controller
 				}
 				
 				$b = $i+1;
-				echo "<pre>";
 				$cfcombine = $cfold +  $nilai_hitung[$a][$i+1]['cf_baru'] * (1 - $cfold);
-				echo "cfcombine = ".$cfold." +  ".$nilai_hitung[$a][$i+1]['cf_baru']." * (1 - ".$cfold.") = ". $cfcombine;
 				$cfcombine = round($cfcombine, 3);
-				echo "</pre>";
 				
 			}
-			echo "<pre>";
 			$total_cf = $total_cf + $cfcombine;
-			echo "total_cf = ".$total_cf." + ".$cfcombine." = ". $total_cf;
 			$hasil_cf = $cfcombine * 100 . "%";
-			echo "hasil_cf = ".$cfcombine." * ". 100 ." = ". $hasil_cf;
 			$data = ["kode_pakar" => $kode_pakar, "hasil" => $hasil_cf];
-			echo "</pre>";
 			array_push($hasil, $data);
 		}
 		$rata2_cf = ($total_cf/5) * 100;
