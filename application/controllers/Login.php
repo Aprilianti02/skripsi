@@ -78,6 +78,7 @@ class Login extends CI_Controller
 	function cek_bumil($username, $pass){
 		$data2 	= $this->Pasien_model->ambil_data();
 		foreach ($data2 as $pasien) {
+			echo $username. " ". $pasien->username."\n\n"; 
 			if ($username == $pasien->username) {
 				// echo $pass ." == ".$pasien->pass;
 				if ($pass == $pasien->pass) {
@@ -92,19 +93,18 @@ class Login extends CI_Controller
 					];
 					// break;
 					$this->session->set_userdata($data);
-					redirect(base_url("bumil/beranda"));
+					// redirect(base_url("bumil/beranda"));
 				}
 				else {
 					$data = ['msg' => "Username atau Password Salah !!!"];
 					$this->session->set_userdata($data);
 					redirect(base_url("login"));
 				}
-			}else{
-				$data = ['msg' => "Username atau Password Salah !!!"];
-				$this->session->set_userdata($data);
-				redirect(base_url("login"));
 			}
 		}
+		$data = ['msg' => "Username atau Password Salah !!!"];
+		$this->session->set_userdata($data);
+		redirect(base_url("login"));
 	}
 
 	function logout() {
