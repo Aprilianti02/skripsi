@@ -93,7 +93,7 @@ class Login extends CI_Controller
 					];
 					// break;
 					$this->session->set_userdata($data);
-					// redirect(base_url("bumil/beranda"));
+					redirect(base_url("bumil/beranda"));
 				}
 				else {
 					$data = ['msg' => "Username atau Password Salah !!!"];
