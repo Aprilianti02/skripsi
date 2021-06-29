@@ -12061,8 +12061,8 @@ a:focus {
 
 .bg-login-image {
 	background: url(http://localhost/skripsi/img/bb845829-e39a-4980-a987-5f3f3a39d0be.jpg);
-	background-position: center;
-	background-size: cover
+	background-position: right;
+	background-size: contain
 }
 
 .bg-register-image {

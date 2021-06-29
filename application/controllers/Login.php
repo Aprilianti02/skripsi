@@ -15,12 +15,14 @@ class Login extends CI_Controller
 
 	public function index ()
 	{
+		echo $this->session->userdata("status");
+		echo $this->session->userdata("jabatan");
 		if ($this->session->userdata("status") == "login") {
 			if ($this->session->userdata("jabatan") == "Dokter") {
 				redirect(base_url("dokter/beranda"));
 			}else if ($this->session->userdata("jabatan") == "Bidan") {
 				redirect(base_url("bidan/beranda"));
-			}else if ($this->session->userdata("jabatan") == "Bumil") {
+			}else if ($this->session->userdata("jabatan") == "Pasien") {
 				redirect(base_url("bumil/beranda"));
 			}
 		}
@@ -37,6 +39,7 @@ class Login extends CI_Controller
 			if ($username == $pakar->username) {
 				if ($pass == $pakar->pass) {
 					if ($pakar->jabatan ==  "Dokter") {
+						echo $pakar->jabatan;
 						$data = [
 							'kode_pakar'	=> $pakar->kode_pakar,
 							'nama'		=> $pakar->nama_pakar,
@@ -47,6 +50,7 @@ class Login extends CI_Controller
 						$this->session->set_userdata($data);
 						redirect(base_url("dokter/beranda"));
 					}else if ($pakar->jabatan == "Bidan") {
+						echo $pakar->jabatan;
 						$data = [
 							'kode_pakar'	=> $pakar->kode_pakar,
 							'nama'		=> $pakar->nama_pakar,
@@ -58,24 +62,24 @@ class Login extends CI_Controller
 						redirect(base_url("bidan/beranda"));
 					}
 					else{
+						// echo "pasien";
 						$this->cek_bumil($username, $pass);
 					}
 				}
 				else{
+					// echo "pasien";
 					$this->cek_bumil($username, $pass);
 				}				
 			}
-			else{
-				$this->cek_bumil($username, $pass);
-			}
 		}
+		$this->cek_bumil($username, $pass);
 	}
 
 	function cek_bumil($username, $pass){
 		$data2 	= $this->Pasien_model->ambil_data();
 		foreach ($data2 as $pasien) {
 			if ($username == $pasien->username) {
-				echo $pass ." == ".$pasien->pass;
+				// echo $pass ." == ".$pasien->pass;
 				if ($pass == $pasien->pass) {
 					$data = [
 						'kode_pasien'	=> $pasien->kode_pasien,
@@ -91,8 +95,14 @@ class Login extends CI_Controller
 					redirect(base_url("bumil/beranda"));
 				}
 				else {
-					echo "gagal";
+					$data = ['msg' => "Username atau Password Salah !!!"];
+					$this->session->set_userdata($data);
+					redirect(base_url("login"));
 				}
+			}else{
+				$data = ['msg' => "Username atau Password Salah !!!"];
+				$this->session->set_userdata($data);
+				redirect(base_url("login"));
 			}
 		}
 	}

@@ -15,6 +15,9 @@
 							<div class="text-center">
 								<h1 class="h4 text-gray-900 mb-4">Selamat Datang</h1>
 							</div>
+							<?php if ($this->session->userdata("msg") != null){ ?>
+								<center><p style="color : #ff0000"><?php echo $this->session->userdata("msg") ?></p></center>
+							<?php } ?>
 							<br>
 							<form class="user" method="POST" action="<?php echo base_url('login/action') ?>">
 								<div class="form-group">
