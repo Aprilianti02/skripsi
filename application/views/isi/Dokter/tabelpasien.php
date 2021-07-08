@@ -16,6 +16,7 @@
 							<th>Tanggal Lahir</th>
 							<th>Wilayah</th>
 							<th>Alamat</th>
+							<th>E-Mail</th>
 						</tr>
 					<tbody>
 						<?php foreach ($pasien as $p) { ?>
@@ -25,6 +26,7 @@
 								<td><?php echo $p->tgl_lahir ?></td>
 								<td><?php echo $p->wilayah ?></td>
 								<td><?php echo $p->alamat ?></td>
+								<td><?php echo $p->email ?></td>
 							</tr>
 						<?php } ?>
 					</tbody>

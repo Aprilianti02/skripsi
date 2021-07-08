@@ -83,8 +83,17 @@
     							</div>
     							<hr>
     							<center>
-    								<h3>Anda Mengalami Tanda Gejala Anemia : </h3>
-    							</center>
+							    	<div class="col-md-8" style="border: 0; padding: 10px; background-color: #FF0000; text-align: left;">
+									<center>
+									
+    										<?php if ($hasil[5][0]['rata2_cf'] != 0){ ?>
+    										<h3 style="color:#FFFFFF">Anda Mengalami Tanda Gejala Anemia : </h3>
+										<?php }else{ ?>
+    										<h3 style="color:#FFFFFF">Anda Tidak Mengalami Tanda Gejala Anemia : </h3>
+										<?php } ?>
+    									</center>
+								</div>
+							</center>
     							<hr>
     							<center>
     								<div class="row">
@@ -93,27 +102,27 @@
 					    			switch ($key['kode_pakar']) {
 								    case 'PK01':
 									?>
-    										<h5>dr. Nina</h5>
+    										<h5 style="color:#000000">dr. Nina</h5>
     										<?php
 									    break;
 								    case 'PK02':
 									?>
-    										<h5>Bidan Susani</h5>
+    										<h5 style="color:#000000">Bidan Susani</h5>
     										<?php
 									    break;
 								    case 'PK03':
 									?>
-    										<h5>Bidan Ariani Lutfi</h5>
+    										<h5 style="color:#000000">Bidan Ariani Lutfi</h5>
     										<?php
 									    break;
 								    case 'PK04':
 									?>
-    										<h5>Bidan Indra Susilawati</h5>
+    										<h5 style="color:#000000">Bidan Indra Susilawati</h5>
     										<?php
 									    break;
 								    case 'PK05':
 									?>
-    										<h5>Bidan Frida </h5>
+    										<h5 style="color:#000000">Bidan Frida </h5>
     										<?php
 									    break;
 								    default:
@@ -122,7 +131,7 @@
 							    }
 							?>
 							
-    										<p>
+    										<p style="color:#000000">
 										    <?php 
 										    if ($key['hasil'] != null) {
 											    # code...
@@ -133,7 +142,7 @@
 											?>
 										</p>
 										<?php if($key['kode_pakar'] == '' && $key['hasil'] == ''){ ?>
-											<h5>Rata - rata : <?php echo $key[0]['rata2_cf']."%"?></h5>
+											<h5 style="color:#000000">Dengan Presentase : <?php echo $key[0]['rata2_cf']."%"?></h5>
 											
 										<?php } ?>
     										<?php } ?>
@@ -141,9 +150,13 @@
     								</div>
     							</center>
     							<hr>
-    							<center>
-    								<h3>Rutin Mengkonsumsi Tablet Fe</h3>
-    							</center>
+							<center>
+							    	<div class="col-md-6" style="border: 0; padding: 10px; background-color: #0000FF; text-align: left;">
+								<center>
+									<h3 style="color:#FFFFFF">Rutin Mengkonsumsi Tablet Fe</h3>
+								</center>
+							    	</div>
+							</center>
     							<hr>
     							<div class="row">
     								<div class="col-md-2">

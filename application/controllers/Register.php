@@ -22,6 +22,7 @@
                $tgl_lahir     = $this->input->post("tgl_lahir");
                $wilayah       = $this->input->post("wilayah");
                $alamat        = $this->input->post("alamat");
+               $email         = $this->input->post("email");
                $username      = $this->input->post("username");
                $pass          = $this->input->post("pass");
 
@@ -31,6 +32,7 @@
                     'tgl_lahir'    => $tgl_lahir,
                     'wilayah'      => $wilayah,
                     'alamat'       => $alamat,
+                    'email'        => $email,
                     'username'     => $username,
                     'pass'         => $pass
                ];

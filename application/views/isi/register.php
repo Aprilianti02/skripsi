@@ -11,22 +11,24 @@
 					<form class="user" action="register/tambah" method="POST">
 						<div class="form-group row">
 							<div class="col-sm-6 mb-3 mb-sm-0">
-								<label class="col-form-label pt-0" for="no_rm">Kode Pasien</label>
-								<input type="text" class="form-control" id="kode_pasien" name="kode_pasien"
+								<label class="col-form-label pt-0" for="no_rm" hidden>Kode Pasien</label>
+								<input type="text" class="form-control" id="kode_pasien" name="kode_pasien" hidden
 									placeholder="Kode Pasien" value="<?php echo $kode ?>" readonly>
 							</div>
 						</div>
-						<div class="form-group">
-							<label class="col-form-label pt-0" for="no_rm">Nama Lengkap</label>
-							<input type="text" class="form-control" id="nama" name="nama"
-								placeholder="Nama Lengkap" required>
-						</div>
 						<div class="form-group row">
+							<div class="col-sm-6">
+								<label class="col-form-label pt-0" for="no_rm">Nama Lengkap</label>
+								<input type="text" class="form-control" id="nama" name="nama"
+								placeholder="Nama Lengkap" required>
+							</div>
 							<div class="col-sm-6">
 								<label class="col-form-label pt-0" for="no_rm">Tanggal Lahir</label>
 								<input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir"
 									placeholder="Tanggal Lahir" required>
 							</div>
+						</div>
+						<div class="form-group row">
 							<div class="col-sm-6">
 								<span style='color:#F00;'>*</span>
 								<label class="col-form-label pt-0" for="wilayah">Wilayah /Desa</label>
@@ -46,6 +48,11 @@
 									<option value="Sukodadi">Sukodadi</option>
 									<option value="Sumber Rejo">Sumber Rejo</option>
 								</select>
+							</div>
+							<div class="col-sm-6">
+								<label class="col-form-label pt-0" for="no_rm">E-mail</label>
+								<input type="email" class="form-control" id="email" name="email"
+								placeholder="E-mail" required>
 							</div>
 						</div>
 						<div class="form-group row">

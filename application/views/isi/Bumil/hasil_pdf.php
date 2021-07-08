@@ -127,6 +127,11 @@
                <?php $i++; } ?>
 		</tbody>
 	</table>
+	<?php if($hasil[5][0]['rata2_cf'] != 0){ ?>
+     <p style="font-size:16pt"><b>Anda Mengalami Tanda Gejela Anemia <br> Dengan Presentase : <?php echo $hasil[5][0]['rata2_cf'] ?> %</p>
+	<?php }else{ ?>
+     <p style="font-size:16pt"><b>Anda Tidak Mengalami Tanda Gejela Anemia</p>
+	<?php } ?>
      <p><b>* Jangan Lupa Mengkonsumsi Tablet Fe</b></p>
 </body>
 <script>

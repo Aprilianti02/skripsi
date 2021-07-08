@@ -22,6 +22,7 @@
 							<th>Tanggal Lahir</th>
 							<th>Wilayah</th>
 							<th>Alamat</th>
+							<th>E-mail</th>
 						</tr>
 					</thead>
 					<tfoot>
@@ -31,6 +32,7 @@
 							<th>Tanggal Lahir</th>
 							<th>Wilayah</th>
 							<th>Alamat</th>
+							<th>E-mail</th>
 						</tr>
 					</tfoot>
 					<tbody>
@@ -41,6 +43,7 @@
 							<td><?php echo $p->tgl_lahir ?></td>
 							<td><?php echo $p->wilayah ?></td>
 							<td><?php echo $p->alamat ?></td>
+							<td><?php echo $p->email ?></td>
 						</tr>
 						<?php } ?>
 					</tbody>
