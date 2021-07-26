@@ -98,49 +98,7 @@
     							<center>
     								<div class="row">
     									<div class="col-md-12">
-    										<?php foreach ($hasil as $key) { ?> <?php
-					    			switch ($key['kode_pakar']) {
-								    case 'PK01':
-									?>
-    										<h5 style="color:#000000">dr. Nina</h5>
-    										<?php
-									    break;
-								    case 'PK02':
-									?>
-    										<h5 style="color:#000000">Bidan Susani</h5>
-    										<?php
-									    break;
-								    case 'PK03':
-									?>
-    										<h5 style="color:#000000">Bidan Ariani Lutfi</h5>
-    										<?php
-									    break;
-								    case 'PK04':
-									?>
-    										<h5 style="color:#000000">Bidan Indra Susilawati</h5>
-    										<?php
-									    break;
-								    case 'PK05':
-									?>
-    										<h5 style="color:#000000">Bidan Frida </h5>
-    										<?php
-									    break;
-								    default:
-									    # code...
-									    break;
-							    }
-							?>
-							
-    										<p style="color:#000000">
-										    <?php 
-										    if ($key['hasil'] != null) {
-											    # code...
-											    echo $key['hasil'];
-										    }else{
-											    echo "";
-										    }
-											?>
-										</p>
+    										<?php foreach ($hasil as $key) { ?> 			
 										<?php if($key['kode_pakar'] == '' && $key['hasil'] == ''){ ?>
 											<h5 style="color:#000000">Dengan Presentase : <?php echo $key[0]['rata2_cf']."%"?></h5>
 											
